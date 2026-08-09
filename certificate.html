@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certificate · MORSE ACADEMY</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#05070A; --paper:#0C0F14; --amber:#E8A33D; --amber-d:#8C651E; --text:#EDE7D8; --tm:#8C8779; --green:#4CD97B;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif;
+  min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:32px 16px 60px;
+}
+.toolbar{ display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; justify-content:center; }
+.toolbar input{
+  background:rgba(255,255,255,.04); border:1px solid rgba(232,163,61,.3); color:var(--text);
+  border-radius:8px; padding:10px 14px; font-family:'Cinzel',serif; font-size:13px; min-width:220px; text-align:center;
+}
+.btn{
+  font-family:'Cinzel',serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+  padding:11px 20px; border-radius:100px; cursor:pointer; border:1px solid rgba(232,163,61,.3);
+  background:rgba(232,163,61,.1); color:var(--amber); transition:all .2s;
+}
+.btn:hover{ background:rgba(232,163,61,.22); }
+
+.cert{
+  width:min(920px, 100%); aspect-ratio:1.42/1; background:
+    radial-gradient(ellipse 70% 70% at 20% 10%, rgba(232,163,61,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 85% 90%, rgba(76,217,123,.05) 0%, transparent 60%),
+    var(--paper);
+  border:2px solid rgba(232,163,61,.5);
+  outline:1px solid rgba(232,163,61,.18); outline-offset:-10px;
+  border-radius:6px; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding:5%; gap:14px;
+}
+.cert::before{
+  content:'✦'; position:absolute; top:14px; left:18px; color:var(--amber); opacity:.5; font-size:18px;
+}
+.cert::after{
+  content:'✦'; position:absolute; bottom:14px; right:18px; color:var(--amber); opacity:.5; font-size:18px;
+}
+.seal{
+  width:64px; height:64px; border-radius:50%; border:2px solid var(--amber); display:flex; align-items:center;
+  justify-content:center; font-size:26px; box-shadow:0 0 30px rgba(232,163,61,.25); margin-bottom:4px;
+}
+.eyebrow{ font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--amber); opacity:.7; text-transform:uppercase; }
+.title{
+  font-family:'Cinzel Decorative',serif; font-weight:900; font-size:clamp(22px,4vw,40px);
+  background:linear-gradient(135deg,#8C651E,#FFDD8A 40%,#E8A33D 60%,#7A5316);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.certifies{ font-size:12px; color:var(--tm); letter-spacing:1px; }
+.name{ font-family:'Cinzel Decorative',serif; font-size:clamp(22px,3.6vw,36px); color:var(--text); border-bottom:1px solid rgba(232,163,61,.4); padding:2px 24px 8px; }
+.desc{ font-size:12px; color:var(--tm); max-width:70%; line-height:1.7; }
+.stats{ display:flex; gap:26px; flex-wrap:wrap; justify-content:center; margin:6px 0; }
+.stat{ text-align:center; }
+.stat b{ display:block; font-family:'Cinzel',serif; color:var(--amber); font-size:17px; }
+.stat span{ font-size:8px; letter-spacing:1.5px; text-transform:uppercase; color:var(--tm); }
+.morse-sig{ font-family:'JetBrains Mono',monospace; color:var(--green); letter-spacing:3px; font-size:11px; opacity:.85; word-break:break-all; max-width:80%; }
+.foot-row{ display:flex; justify-content:space-between; width:80%; margin-top:10px; font-size:10px; color:var(--tm); }
+.foot-row .sig{ font-family:'Cinzel Decorative',serif; color:var(--amber); font-size:15px; }
+.foot-row div{ text-align:center; border-top:1px solid rgba(255,255,255,.15); padding-top:6px; min-width:160px; }
+
+.note{ max-width:620px; text-align:center; color:var(--tm); font-size:11.5px; line-height:1.6; margin-top:20px; }
+.note a{ color:var(--amber); }
+
+@media print{
+  body{ background:#fff; padding:0; }
+  .toolbar, .note{ display:none; }
+  .cert{ width:100%; aspect-ratio:auto; height:100vh; border:2px solid #C9A227; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <input type="text" id="opName" placeholder="Your name" maxlength="40"/>
+  <button class="btn" id="printBtn">🖨 Print / Save as PDF</button>
+  <a class="btn" href="index.html" style="text-decoration:none;display:inline-flex;align-items:center">← Back to Academy</a>
+</div>
+
+<div class="cert" id="certRoot">
+  <div class="seal">📡</div>
+  <div class="eyebrow">Morse Academy</div>
+  <div class="title">Certificate of Mastery</div>
+  <div class="certifies">This certifies that</div>
+  <div class="name" id="certName">Operator</div>
+  <div class="desc">has completed the 30-day Koch-method curriculum, unlocking the full 40-character set and demonstrating reliable copy across letters, numbers, and punctuation.</div>
+  <div class="stats" id="certStats"></div>
+  <div class="morse-sig" id="certMorseSig"></div>
+  <div class="foot-row">
+    <div id="certDate">—</div>
+    <div class="sig">Morse Academy</div>
+  </div>
+</div>
+
+<p class="note" id="certNote"></p>
+
+<script src="data.js"></script>
+<script>
+const STORE_KEY = "morseAcademyState_v1";
+const NAME_KEY = "morseAcademyOperatorName";
+
+function loadState(){
+  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || null; }
+  catch(e){ return null; }
+}
+
+function countUnlocked(s){
+  return Object.values(s.charStats||{}).filter(c=>c.unlocked).length;
+}
+
+function render(){
+  const state = loadState();
+  const name = localStorage.getItem(NAME_KEY) || "Operator";
+  document.getElementById("opName").value = name === "Operator" ? "" : name;
+  document.getElementById("certName").textContent = name;
+
+  const morseName = name.toUpperCase().split("").map(ch=> MORSE_MAP[ch]).filter(Boolean).join(" ");
+  document.getElementById("certMorseSig").textContent = morseName || "· · · — — — · · ·";
+
+  const today = new Date();
+  document.getElementById("certDate").textContent = today.toLocaleDateString(undefined, {year:"numeric", month:"long", day:"numeric"});
+
+  const note = document.getElementById("certNote");
+  const statsEl = document.getElementById("certStats");
+
+  if (!state){
+    statsEl.innerHTML = `<div class="stat"><b>—</b><span>No progress found</span></div>`;
+    note.innerHTML = `No saved progress was found in this browser. Complete the curriculum in <a href="index.html">the Academy</a> first, then reopen this page — or just print this as a keepsake blank.`;
+    return;
+  }
+
+  const lvl = levelForXp(state.xp||0);
+  const unlocked = countUnlocked(state);
+  const daysDone = (state.completedDays||[]).length;
+  const master = (state.achievements||[]).includes("master");
+
+  statsEl.innerHTML = [
+    [lvl.title, "Rank"],
+    [unlocked+"/40", "Characters"],
+    [(state.pbEffWpm||0)+" WPM", "Best Speed"],
+    [daysDone+"/30", "Days Complete"],
+    [(state.xp||0), "Total XP"]
+  ].map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+  note.innerHTML = master
+    ? `Congratulations — Final Exam passed. This certificate reflects your live progress data stored in this browser; printed copies make a nice keepsake for a 30-day grind well earned.`
+    : `Heads up: your saved progress doesn't show the Day 30 Final Exam as complete yet (${daysDone}/30 days checked off). You can still print this as a progress snapshot, or finish the program in <a href="index.html">the Academy</a> first for the full certificate moment.`;
+}
+
+document.getElementById("opName").addEventListener("input", e=>{
+  const v = e.target.value.trim() || "Operator";
+  localStorage.setItem(NAME_KEY, v);
+  document.getElementById("certName").textContent = v;
+  const morseName = v.toUpperCase().split("").map(ch=> MORSE_MAP[ch]).filter(Boolean).join(" ");
+  document.getElementById("certMorseSig").textContent = morseName || "· · · — — — · · ·";
+});
+document.getElementById("printBtn").addEventListener("click", ()=> window.print());
+
+render();
+</script>
+</body>
+</html>
